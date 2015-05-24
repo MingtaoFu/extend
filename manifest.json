@@ -1,0 +1,22 @@
+{
+    "manifest_version":2,
+    "name":"the first extension",
+    "version":"1.0",
+    "description":"the first demo",
+    "browser_action":{
+        "default_popup":"popup.html"
+    },
+
+    "content_scripts": [{
+         "matches": ["http://*/*","https://*/*"],
+         "js": ["js/global.js","js/back.js"],
+         "all_frames": true,
+         "css": ["css/back.css"]
+    }],
+    "permissions":[
+        "downloads",
+        "notifications",
+        "tabs",
+        "windows"
+    ]
+}
