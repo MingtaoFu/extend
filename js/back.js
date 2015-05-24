@@ -121,12 +121,23 @@ for(var i = 0;i < dom_a.length;i++){
 
         dom_a[i].top = getTop(dom_a[i]);
         dom_a[i].left = getLeft(dom_a[i]);
+		  dom_a[i].bottom = dom_a[i].top + dom_a[i].offsetHeight;
         dom_a2.push(dom_a[i]);
 if(i ==0)console.log('iiii',dom_a2[i],dom_a2[0].left);
     }
 }
 //console.log(dom_a2[0].top);
-dom_a2 = bubbleSort(dom_a2,top);
+//dom_a2 = bubbleSort(dom_a2,top);
+
+
+var iiii = {
+     top:100,
+     bottom:200,
+     left:100
+}
+var aaaaa = [iiii];
+loadLayout(dom_a2);
+console.log('uuuuuuuu',layout);
 
 focusFrame.style.top = dom_a2[count].top + 'px';
 focusFrame.style.left = dom_a2[count].left + 'px';

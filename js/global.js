@@ -4,8 +4,13 @@ var layout = [];    //布局数组
 
 //页面布局
 function loadLayout(arr){
-    for(var i = 0;i < arr.length;i++){
-        for(var j = 0;j < layout.length;j++){
+    //console.log(22222222222222223);
+    var newArr = [];
+    newArr.push(arr[0]);
+    layout.push(newArr);
+    for(var i = 1;i < arr.length;i++){
+        var top = layout.length
+        for(var j = 0;j < top;j++){
             if(judgeDirection(arr[i],layout[j][0]) == 2){
                 var newArr = [];
                 newArr.push(arr[i]);
@@ -14,14 +19,17 @@ function loadLayout(arr){
             }
             else if(judgeDirection(arr[i],layout[j][0]) == 3){
                 for(var k = 0;k < layout[j].length;k++){
-                    if(arr[i].left < layout[j][k]){
+                    if(arr[i].left < layout[j][k].left){
+                        console.log('hahaha');
                         layout[j].splice(k,0,arr[i]);
                         break;
                     }
-                    if(k == layout[j].length - 1)
+                    if(k == layout[j].length - 1){
                         layout[j].push(arr[i]);
-                    break;
+                        break;
+                    }
                 }
+                break;
             }
             if(j == layout.length - 1){
                 var newArr = [];
@@ -41,3 +49,6 @@ function judgeDirection(newDIv,oldDiv){
     else
         return 3;       //当前行
 }
+// var uu = document.getElementsByTagName('a');
+// loadLayout(uu);
+// console.log('uuuuuuuuuuuuuuuuu',layout);
